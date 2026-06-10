@@ -23,8 +23,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-      - run: npm ci
+      # npm install (not `npm ci`) so platform-specific optional deps
+      # (e.g. @rollup/rollup-linux-x64-gnu) resolve correctly on the runner.
+      - run: npm install --no-audit --no-fund
       - name: Build (base path = /<repo>/)
         run: npm run build
         env:
