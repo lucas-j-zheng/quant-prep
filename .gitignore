@@ -1,0 +1,32 @@
+# --- build / tooling ---
+node_modules/
+dist/
+dev-dist/
+build/
+.vite/
+__pycache__/
+.DS_Store
+*.local
+
+# --- content-generation pipeline & raw data (not part of the published app) ---
+questions/
+solutions/
+lessons/
+sections/
+verification/
+build_content.py
+assemble_content.py
+inject_lessons.py
+restructure_content.py
+apply_enhancements.py
+extract_questions.py
+scrape_full.py
+qg_raw.html
+qg_one.html
+quantguide_questions.json
+quantguide_questions_full.json
+quantguide_questions.csv
+quant-study-app-brief.md
+
+# netlify local link
+.netlify/

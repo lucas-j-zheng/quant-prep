@@ -1,0 +1,248 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* KaTeX CSS is imported in main.jsx so fonts get bundled + precached. */
+
+:root {
+  color-scheme: dark;
+  --ink: #0f0d12;
+  --panel: #17141b;
+  --edge: #2b2531;
+  --cream: #f2ece2;
+  --gold: #eab04a;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+/* Never allow sideways page scroll on a phone; wide content scrolls in-place. */
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: '"Hanken Grotesk Variable"', ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: 'ss01' on;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
+  overscroll-behavior-y: none;
+}
+
+/* Atmosphere: a soft honey glow up top + a fine grain overlay for warmth/depth.
+   Both are fixed, behind everything, and pointer-transparent. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(120% 70% at 50% -10%, rgba(234, 176, 74, 0.1), transparent 60%),
+    radial-gradient(90% 50% at 100% 0%, rgba(224, 117, 140, 0.06), transparent 55%),
+    var(--ink);
+}
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: '"Fraunces Variable"', Georgia, serif;
+}
+
+/* Native-feeling tap targets */
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Thin, warm scrollbars on the scrollable code/table containers */
+.scroll-x::-webkit-scrollbar {
+  height: 6px;
+}
+.scroll-x::-webkit-scrollbar-thumb {
+  background: #3a3340;
+  border-radius: 999px;
+}
+
+/* Layout helpers tied to the fixed bottom action bar + iPhone home indicator */
+.problem-page {
+  padding-bottom: calc(7.5rem + env(safe-area-inset-bottom));
+}
+.action-bar {
+  padding-bottom: calc(0.85rem + env(safe-area-inset-bottom));
+}
+
+/* ---------------------------------------------------------------- KaTeX -- */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 2px 0;
+}
+.katex {
+  font-size: 1.02em;
+}
+
+/* ------------------------------------------------------- Markdown prose -- */
+.prose-quant {
+  font-size: 0.975rem;
+  line-height: 1.72;
+  color: #ddd5e0;
+}
+.prose-quant p {
+  margin: 0.7rem 0;
+}
+.prose-quant ul,
+.prose-quant ol {
+  margin: 0.7rem 0;
+  padding-left: 1.3rem;
+}
+.prose-quant li {
+  margin: 0.3rem 0;
+}
+.prose-quant li::marker {
+  color: rgba(234, 176, 74, 0.7);
+}
+.prose-quant strong {
+  color: var(--cream);
+  font-weight: 600;
+}
+.prose-quant em {
+  color: #c9c0d2;
+}
+
+/* Editorial heading rhythm for the long-form lessons */
+.prose-quant h2 {
+  font-size: 1.45rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #fbf6ee;
+  margin: 1.9rem 0 0.7rem;
+  line-height: 1.2;
+}
+.prose-quant h3 {
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: #f2ece2;
+  margin: 1.5rem 0 0.5rem;
+}
+.prose-quant h4 {
+  font-family: '"Hanken Grotesk Variable"', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  margin: 1.1rem 0 0.35rem;
+}
+.prose-quant h2:first-child,
+.prose-quant h3:first-child {
+  margin-top: 0;
+}
+.prose-quant hr {
+  border: 0;
+  border-top: 1px solid var(--edge);
+  margin: 1.6rem 0;
+}
+
+/* Inline code */
+.prose-quant code {
+  font-family: '"JetBrains Mono Variable"', ui-monospace, monospace;
+  background: rgba(234, 176, 74, 0.1);
+  color: #f0d8a8;
+  padding: 0.08rem 0.36rem;
+  border-radius: 0.35rem;
+  font-size: 0.86em;
+  overflow-wrap: anywhere;
+}
+
+/* Fenced code blocks: scroll sideways, never blow out the page */
+.prose-quant .code-scroll {
+  margin: 0.85rem 0;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--edge);
+  border-radius: 0.85rem;
+  background: #110f15;
+}
+.prose-quant .code-scroll pre {
+  margin: 0;
+  padding: 0.85rem 1rem;
+  white-space: pre;
+}
+.prose-quant .code-scroll code {
+  display: inline-block;
+  min-width: 100%;
+  background: transparent;
+  color: #d9d2e2;
+  padding: 0;
+  border-radius: 0;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  white-space: pre;
+  overflow-wrap: normal;
+}
+
+/* Markdown tables: scroll inside their own bordered container */
+.prose-quant .table-scroll {
+  margin: 0.85rem 0;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--edge);
+  border-radius: 0.85rem;
+}
+.prose-quant table {
+  border-collapse: collapse;
+  width: auto;
+  min-width: 100%;
+  font-size: 0.83rem;
+}
+.prose-quant th,
+.prose-quant td {
+  padding: 0.5rem 0.8rem;
+  text-align: left;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--edge);
+  border-right: 1px solid var(--edge);
+}
+.prose-quant th:last-child,
+.prose-quant td:last-child {
+  border-right: none;
+}
+.prose-quant tr:last-child td {
+  border-bottom: none;
+}
+.prose-quant thead th {
+  background: rgba(234, 176, 74, 0.08);
+  color: #f6e6c6;
+  font-weight: 600;
+}
+.prose-quant td code {
+  white-space: nowrap;
+}
+
+/* Stagger helper: set --i on a list item to delay its fade-up. */
+.stagger {
+  animation: fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--i, 0) * 45ms);
+}
