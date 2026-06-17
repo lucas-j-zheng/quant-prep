@@ -33,24 +33,100 @@ function protectCode(src) {
   return { out, blocks }
 }
 
+// --- Math vs. currency disambiguation -------------------------------------
+// A bare `$` is ambiguous: it can open inline math ($1/2$) or be a literal
+// dollar sign ($10,000). KaTeX's auto-render treats every `$` as a math
+// delimiter, so prose currency gets swallowed into bogus math spans. We
+// classify each `$` here, BEFORE KaTeX runs, and route currency to an
+// ignored <span> so KaTeX never sees it.
+const PROSE_WORD = /[A-Za-z]{3,}/g
+const MATH_FUNCS = new Set([
+  'cos', 'sin', 'tan', 'log', 'exp', 'max', 'min', 'lim', 'det', 'gcd', 'mod',
+  'sec', 'csc', 'cot', 'var', 'cov', 'arg', 'sup', 'inf',
+])
+// A span ending in a dangling binary operator (e.g. "3 = ", "7 + ", "1/36 ≈ +")
+// is a currency mis-pairing like "$3 = $7", not a real equation.
+const TRAILING_OP = /[-+×÷=≈≤≥−]\s*$/
+
+// Real math expresses words via \text{...}; bare English prose => not math.
+function hasProse(inner) {
+  const stripped = inner
+    .replace(
+      /\\(?:text|mathrm|mathbf|mathit|mathsf|operatorname|textbf|textit)\s*\{[^{}]*\}/g,
+      ' '
+    )
+    .replace(/\\[a-zA-Z]+/g, ' ') // drop \command
+    .replace(/\\./g, ' ') // drop \% \$ \, etc.
+  const words = stripped.match(PROSE_WORD) || []
+  return words.some((w) => !MATH_FUNCS.has(w.toLowerCase()))
+}
+
+// Index of the next un-escaped single `$` on the same line, or -1.
+function findClose(s, from) {
+  for (let i = from; i < s.length; i++) {
+    const c = s[i]
+    if (c === '\n') return -1
+    if (c === '\\') {
+      i++ // a backslash escapes the next char (e.g. \$ inside math)
+      continue
+    }
+    if (c === '$') return i
+  }
+  return -1
+}
+
+// Pull math spans into @@MATH n@@ placeholders and currency `$` into @@CUR@@.
 function protectMath(src) {
   const spans = []
-  // Order matters: block $$...$$ before inline $...$. The @@MATH n@@ marker has
-  // NO surrounding-space dependency, so math at the start of a list item / line
-  // still restores correctly.
-  let out = src.replace(/\$\$([\s\S]+?)\$\$/g, (_, m) => {
-    spans.push(`$$${m}$$`)
-    return `@@MATH${spans.length - 1}@@`
-  })
-  out = out.replace(/\$([^$\n]+?)\$/g, (_, m) => {
-    spans.push(`$${m}$`)
-    return `@@MATH${spans.length - 1}@@`
-  })
+  let out = ''
+  let i = 0
+  const n = src.length
+  while (i < n) {
+    const c = src[i]
+    // Explicit literal dollar: \$  -> currency (and drop the backslash).
+    if (c === '\\' && src[i + 1] === '$') {
+      out += '@@CUR@@'
+      i += 2
+      continue
+    }
+    if (c === '$') {
+      // Block math $$...$$
+      if (src[i + 1] === '$') {
+        const end = src.indexOf('$$', i + 2)
+        if (end !== -1) {
+          spans.push(src.slice(i, end + 2))
+          out += `@@MATH${spans.length - 1}@@`
+          i = end + 2
+          continue
+        }
+      }
+      const close = findClose(src, i + 1)
+      const inner = close === -1 ? '' : src.slice(i + 1, close)
+      // Currency if it can't form a clean math span: no closer on the line,
+      // contains prose, or pairs two amounts via a trailing operator.
+      const isCurrency =
+        close === -1 || hasProse(inner) || TRAILING_OP.test(inner)
+      if (isCurrency) {
+        out += '@@CUR@@'
+        i += 1
+        continue
+      }
+      spans.push(src.slice(i, close + 1))
+      out += `@@MATH${spans.length - 1}@@`
+      i = close + 1
+      continue
+    }
+    out += c
+    i++
+  }
   return { out, spans }
 }
 
 function restoreMath(html, spans) {
-  return html.replace(/@@MATH(\d+)@@/g, (_, i) => spans[Number(i)])
+  return html
+    .replace(/@@MATH(\d+)@@/g, (_, i) => spans[Number(i)])
+    // Currency renders as a literal `$` inside a class KaTeX is told to skip.
+    .replace(/@@CUR@@/g, '<span class="kx-cur">$</span>')
 }
 
 function restoreCode(html, blocks) {
@@ -190,6 +266,8 @@ export default function Markdown({ children, className = '' }) {
         ],
         // Don't let KaTeX touch our code blocks.
         ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+        // Currency dollars are wrapped in .kx-cur so they stay literal `$`.
+        ignoredClasses: ['kx-cur'],
         throwOnError: false,
       })
     } catch {
