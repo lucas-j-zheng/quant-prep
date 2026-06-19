@@ -55,6 +55,10 @@ function hasProse(inner) {
       /\\(?:text|mathrm|mathbf|mathit|mathsf|operatorname|textbf|textit)\s*\{[^{}]*\}/g,
       ' '
     )
+    // Sub/superscript groups hold math labels, not prose (e.g. \theta_{MLE},
+    // R^{2}). Drop them so an all-caps label isn't mistaken for a word.
+    .replace(/[_^]\{[^{}]*\}/g, ' ')
+    .replace(/[_^][A-Za-z0-9]/g, ' ')
     .replace(/\\[a-zA-Z]+/g, ' ') // drop \command
     .replace(/\\./g, ' ') // drop \% \$ \, etc.
   const words = stripped.match(PROSE_WORD) || []
@@ -102,10 +106,16 @@ function protectMath(src) {
       }
       const close = findClose(src, i + 1)
       const inner = close === -1 ? '' : src.slice(i + 1, close)
-      // Currency if it can't form a clean math span: no closer on the line,
-      // contains prose, or pairs two amounts via a trailing operator.
+      // Currency if it can't form a clean math span: no closer on the line, or
+      // it contains prose. A trailing operator only signals currency when a
+      // digit immediately follows the closer (the "$3 = $7" arithmetic shape);
+      // a math span that merely ends in "=" before prose (e.g. "$E_i =$ text")
+      // is real math, not currency.
+      const after = close === -1 ? '' : src[close + 1] || ''
       const isCurrency =
-        close === -1 || hasProse(inner) || TRAILING_OP.test(inner)
+        close === -1 ||
+        hasProse(inner) ||
+        (TRAILING_OP.test(inner) && /\d/.test(after))
       if (isCurrency) {
         out += '@@CUR@@'
         i += 1
