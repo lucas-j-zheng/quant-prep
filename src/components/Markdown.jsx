@@ -134,7 +134,12 @@ function protectMath(src) {
 
 function restoreMath(html, spans) {
   return html
-    .replace(/@@MATH(\d+)@@/g, (_, i) => spans[Number(i)])
+    // Escape the LaTeX before it re-enters innerHTML: a bare `<` (e.g.
+    // \sum_{i<j} or P(X < Y)) would otherwise be parsed as the start of an
+    // HTML tag, swallowing the rest of the formula. The browser decodes the
+    // entities back to literal chars in the text node, so KaTeX auto-render
+    // still sees the original LaTeX.
+    .replace(/@@MATH(\d+)@@/g, (_, i) => escapeHtml(spans[Number(i)]))
     // Currency renders as a literal `$` inside a class KaTeX is told to skip.
     .replace(/@@CUR@@/g, '<span class="kx-cur">$</span>')
 }
