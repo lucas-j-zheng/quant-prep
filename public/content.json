@@ -646,7 +646,7 @@
               "title": "Normal Distributions",
               "difficulty": "easy",
               "tags": [],
-              "prompt_markdown": "Consider that X and Y are independent standard normal random variables. What is the P[Y > 4X]?",
+              "prompt_markdown": "Consider that X and Y are independent standard normal random variables. What is $P[Y > 4X]$?",
               "answer": "1/2.",
               "solutions": [
                 {
@@ -1469,7 +1469,7 @@
               "solutions": [
                 {
                   "label": "Solution",
-                  "markdown": "\"At least one blue and one green remain right after the last red is drawn\" means, in the full draw order, the **last red precedes the last blue AND the last red precedes the last green** (so some blue and some green are still left when the final red comes out).\n\nUse complementary inclusion–exclusion. Let:\n- $A = \\{$last red comes after last blue$\\} = \\{$among red+blue marbles, the overall last is red$\\} \\to P(A) = r/(r+b)$.\n- $C = \\{$last red comes after last green$\\} = \\{$among red+green, the overall last is red$\\} \\to P(C) = r/(r+g)$.\n- $A \\cap C = \\{$last red comes after both last blue and last green$\\} = \\{$among all $r+b+g$ marbles, the overall last is red$\\} \\to P(A \\cap C) = r/(r+b+g)$.\n\n$P(\\text{fail}) = P(A \\cup C) = r/(r+b) + r/(r+g) - r/(r+b+g)$.\n$P(\\text{success}) = 1 - [ r/(r+b) + r/(r+g) - r/(r+b+g) ]$.\n\nFor $r = 10$, $b = 20$, $g = 30$:\n$P(\\text{fail}) = 10/30 + 10/40 - 10/60 = 1/3 + 1/4 - 1/6 = 4/12 + 3/12 - 2/12 = 5/12$.\n$P(\\text{success}) = 1 - 5/12 = 7/12$.\n\n(Simulation $\\approx 0.583$.)"
+                  "markdown": "\"At least one blue and one green remain right after the last red is drawn\" means, in the full draw order, the **last red precedes the last blue AND the last red precedes the last green** (so some blue and some green are still left when the final red comes out).\n\nUse complementary inclusion–exclusion. Let:\n- $A = \\{\\text{last red comes after last blue}\\} = \\{\\text{among red+blue marbles, the overall last is red}\\} \\to P(A) = r/(r+b)$.\n- $C = \\{\\text{last red comes after last green}\\} = \\{\\text{among red+green, the overall last is red}\\} \\to P(C) = r/(r+g)$.\n- $A \\cap C = \\{\\text{last red comes after both last blue and last green}\\} = \\{\\text{among all } r+b+g \\text{ marbles, the overall last is red}\\} \\to P(A \\cap C) = r/(r+b+g)$.\n\n$P(\\text{fail}) = P(A \\cup C) = r/(r+b) + r/(r+g) - r/(r+b+g)$.\n$P(\\text{success}) = 1 - [ r/(r+b) + r/(r+g) - r/(r+b+g) ]$.\n\nFor $r = 10$, $b = 20$, $g = 30$:\n$P(\\text{fail}) = 10/30 + 10/40 - 10/60 = 1/3 + 1/4 - 1/6 = 4/12 + 3/12 - 2/12 = 5/12$.\n$P(\\text{success}) = 1 - 5/12 = 7/12$.\n\n(Simulation $\\approx 0.583$.)"
                 }
               ],
               "source": "original",
