@@ -97,7 +97,7 @@
               "difficulty": "easy",
               "tags": [],
               "prompt_markdown": "There are three train cars: a blue one, a red one, and a green one. This train has a conductor whose job it is to disconnect the train cars in the back and put them in the front. They can do this as many or as few times as they want. If the three train cars are randomly ordered, what is the probability that the conductor can rearrange it into rainbow order? (Note: Here, rainbow order means red, then green, then blue.)",
-              "answer": "1/2",
+              "answer": "$1/2$",
               "solutions": [
                 {
                   "label": "Solution",
@@ -129,7 +129,7 @@
               "difficulty": "easy",
               "tags": [],
               "prompt_markdown": "Two brown and six red birds are flying around the sky and suddenly all land randomly in line on a telephone wire. What is the probability that the two brown birds are side by side?",
-              "answer": "1/4 = 0.25.",
+              "answer": "$1/4 = 0.25$.",
               "solutions": [
                 {
                   "label": "Solution",
@@ -177,7 +177,7 @@
               "difficulty": "easy",
               "tags": [],
               "prompt_markdown": "You have a standard Rubik's Cube and you break it apart into 27 cubes. You put those 27 cubes into a bag and you randomly pull one out and toss it in the air. The cube lands such that you can only see 5 non-painted sides. What is the probability that you pulled a cube with one colored side?",
-              "answer": "1/2.",
+              "answer": "$1/2$.",
               "solutions": [
                 {
                   "label": "Solution",
@@ -213,7 +213,7 @@
               "difficulty": "easy",
               "tags": [],
               "prompt_markdown": "Two distinct prime integers between 1 and 20, inclusive, are selected uniformly at random. Find the probability their sum is even.",
-              "answer": "3/4 = 0.75.",
+              "answer": "$3/4 = 0.75$.",
               "solutions": [
                 {
                   "label": "Solution",
@@ -319,7 +319,7 @@
               "difficulty": "easy",
               "tags": [],
               "prompt_markdown": "You have 3 coins. One always comes up heads, one always comes up tails, and one is just a regular fair coin. If you pick one coin, flip it twice and get heads twice, what's the probability of flipping the same coin again and getting heads again?",
-              "answer": "9/10 = 0.9.",
+              "answer": "$9/10 = 0.9$.",
               "solutions": [
                 {
                   "label": "Solution",
@@ -647,7 +647,7 @@
               "difficulty": "easy",
               "tags": [],
               "prompt_markdown": "Consider that X and Y are independent standard normal random variables. What is $P[Y > 4X]$?",
-              "answer": "1/2.",
+              "answer": "$1/2$.",
               "solutions": [
                 {
                   "label": "Solution",
@@ -663,7 +663,7 @@
               "difficulty": "medium",
               "tags": [],
               "prompt_markdown": "Two players, Philip and Brandon, have a 30-side and 20-side dice, respectively. Each player rolls their dice and the player with the highest roll wins (Brandon also wins in the event of a tie). The loser of the game pays the winner an amount equivalent to the value of the winner's dice roll. **Part 1:** What is the expected value for the payoff of Philip?",
-              "answer": "Philip's expected payoff = 163/20 = 8.15.",
+              "answer": "Philip's expected payoff $= 163/20 = 8.15$.",
               "solutions": [
                 {
                   "label": "Closed-form double sum",
@@ -683,7 +683,7 @@
               "difficulty": "medium",
               "tags": [],
               "prompt_markdown": "We play a game with two tetrahedral dice, red and blue, each with faces labeled 1–4. In each turn, you simultaneously roll both dice. If the blue shows more than the red, you are paid the difference, otherwise you are paid nothing. If the blue and red show the same value, the game is immediately over; otherwise, you take another turn. What is the fair value of the game?",
-              "answer": "Fair value = 5/2 = 2.5.",
+              "answer": "Fair value $= 5/2 = 2.5$.",
               "solutions": [
                 {
                   "label": "Solution",
@@ -725,7 +725,7 @@
               "difficulty": "easy",
               "tags": [],
               "prompt_markdown": "Suppose you flip a fair coin 1,000 times. What is the probability you observe an odd number of heads?",
-              "answer": "1/2.",
+              "answer": "$1/2$.",
               "solutions": [
                 {
                   "label": "Solution",
@@ -773,7 +773,7 @@
               "difficulty": "easy",
               "tags": [],
               "prompt_markdown": "Five fair coins are flipped in succession. What is the probability that the number of heads in the first three coin flips is equal to the number of heads in the last two coin flips?",
-              "answer": "5/16 = 0.3125",
+              "answer": "$5/16 = 0.3125$",
               "solutions": [
                 {
                   "label": "Solution",
@@ -789,7 +789,7 @@
               "difficulty": "medium",
               "tags": [],
               "prompt_markdown": "What is the expected number of cards you need to draw from a 52-card deck before you see the first ace?",
-              "answer": "48/5 = 9.6 cards before the first ace (equivalently, the first ace appears at expected position 53/5 = 10.6).",
+              "answer": "$48/5 = 9.6$ cards before the first ace (equivalently, the first ace appears at expected position $53/5 = 10.6$).",
               "solutions": [
                 {
                   "label": "Solution",
@@ -831,7 +831,7 @@
               "difficulty": "easy",
               "tags": [],
               "prompt_markdown": "You place three dots along the edges of an octagon at random. What is the probability that all three dots lie on distinct edges of the octagon?",
-              "answer": "21/32 = 0.65625",
+              "answer": "$21/32 = 0.65625$",
               "solutions": [
                 {
                   "label": "Solution",
@@ -899,7 +899,7 @@
               "difficulty": "easy",
               "tags": [],
               "prompt_markdown": "If a stick is broken in two at random, what is the average length of the smaller piece?",
-              "answer": "1/4 of the stick's length (e.g., 0.25 for a unit stick)",
+              "answer": "$1/4$ of the stick's length (e.g., $0.25$ for a unit stick)",
               "solutions": [
                 {
                   "label": "Solution",
@@ -915,7 +915,7 @@
               "difficulty": "medium",
               "tags": [],
               "prompt_markdown": "If a and b are independent uniform on [0,1], what is the probability that a/b is in [1,3]?",
-              "answer": "**1/3**.",
+              "answer": "**$1/3$**.",
               "solutions": [
                 {
                   "label": "Solution",
@@ -947,7 +947,7 @@
               "difficulty": "medium",
               "tags": [],
               "prompt_markdown": "Assume you are given a stick that is 1 meter in length. Randomly select 2 points on the stick and break it at these 2 points to get 3 pieces. What's the probability that the smallest piece is at most 0.2 meter?",
-              "answer": "0.84 = 21/25.",
+              "answer": "$0.84 = 21/25$.",
               "solutions": [
                 {
                   "label": "Solution",
@@ -979,7 +979,7 @@
               "difficulty": "hard",
               "tags": [],
               "prompt_markdown": "Three legs are positioned uniformly and independently on the perimeter of a circular table. What is the probability the table will stand?",
-              "answer": "1/4 = 0.25.",
+              "answer": "$1/4 = 0.25$.",
               "solutions": [
                 {
                   "label": "Solution",
@@ -1053,7 +1053,7 @@
               "difficulty": "easy",
               "tags": [],
               "prompt_markdown": "An urn containing 2 red and 1 blue orb is in front of you. At each step, you will take out an orb uniformly at random and replace it with a blue orb, regardless of the color selected. Find the expected amount of draws needed until the urn contains only blue orbs.",
-              "answer": "9/2 = 4.5 draws.",
+              "answer": "$9/2 = 4.5$ draws.",
               "solutions": [
                 {
                   "label": "Solution",
@@ -1133,7 +1133,7 @@
               "difficulty": "medium",
               "tags": [],
               "prompt_markdown": "You are given a coin with probability 2/3 to land on heads and 1/3 to land on tails. If you flip this coin until you get a tails immediately followed by heads (the pattern TH), how many times do you expect to flip the coin?",
-              "answer": "9/2 = 4.5 flips.",
+              "answer": "$9/2 = 4.5$ flips.",
               "solutions": [
                 {
                   "label": "Solution",
@@ -1165,7 +1165,7 @@
               "difficulty": "medium",
               "tags": [],
               "prompt_markdown": "An ant is put on a vertex of a simplex, and at each vertex, it has equal probability to move to any other one. Once it goes back to the original start point and also it has visited all the vertices, it stops. What is the expected number of steps for its move?",
-              "answer": "For a tetrahedron (4-vertex simplex), the expected number of steps is 17/2 = 8.5.",
+              "answer": "For a tetrahedron (4-vertex simplex), the expected number of steps is $17/2 = 8.5$.",
               "solutions": [
                 {
                   "label": "Linear system",
@@ -1211,7 +1211,7 @@
               "difficulty": "easy",
               "tags": [],
               "prompt_markdown": "I give you a shuffled deck of 14 cards which contain exactly one card from each rank and a Joker. You win $100 if you flip over the King, Queen, & Jack but if at any point you have flipped over the Joker, the game ends and you win nothing. How much would you be willing to pay to play this game?",
-              "answer": "$25 (the fair value; win probability = 1/4, payoff $100).",
+              "answer": "$25 (the fair value; win probability $= 1/4$, payoff $100).",
               "solutions": [
                 {
                   "label": "Solution",
@@ -1401,7 +1401,7 @@
               "difficulty": "easy",
               "tags": [],
               "prompt_markdown": "You are off venturing in a rainforest where you suddenly come into contact with an isolated civilization. In this civilization, girls are preferred and couples do not stop having children until they have had a girl. Assuming there is equal likelihood of a couple having a boy and a girl, what will the proportion of women in this society be after many years?",
-              "answer": "1/2 (50%).",
+              "answer": "$1/2$ (50%).",
               "solutions": [
                 {
                   "label": "Solution",
@@ -1417,7 +1417,7 @@
               "difficulty": "medium",
               "tags": [],
               "prompt_markdown": "Suppose you roll a fair 6-sided die until you've seen all 6 faces. What is the probability you won't see an odd numbered face until you have seen all even numbered faces?",
-              "answer": "1/20 = 0.05",
+              "answer": "$1/20 = 0.05$",
               "solutions": [
                 {
                   "label": "Solution",
@@ -1433,7 +1433,7 @@
               "difficulty": "medium",
               "tags": [],
               "prompt_markdown": "Dan rolls a die until he gets a 6. Let N be the number of rolls (including the terminating 6).\n\n- **Part 1:** Given that he did *not* see a 5, what is the expected number of times Dan rolled his die?\n- **Part 2:** Given that he saw a 5, what is the expected number of times Dan rolled his die?\n- **Part 3:** Given that he saw only even numbers, what is the expected number of times Dan rolled his die?",
-              "answer": "Part 1: **3**. Part 2: **9**. Part 3: **3/2 = 1.5**.",
+              "answer": "Part 1: **3**. Part 2: **9**. Part 3: **$3/2 = 1.5$**.",
               "solutions": [
                 {
                   "label": "Solution",
@@ -1449,7 +1449,7 @@
               "difficulty": "medium",
               "tags": [],
               "prompt_markdown": "A standard white $3\\times3\\times3$ Rubik's cube is dipped in paint so its entire external surface is red. We explode it into 27 unit cubes. We inspect one in particular, lying face down. No faces are red (none of its visible faces show red). What is the probability that this cube was the center one?",
-              "answer": "**1/2**.",
+              "answer": "**$1/2$**.",
               "solutions": [
                 {
                   "label": "Solution",
@@ -1513,7 +1513,7 @@
               "difficulty": "medium",
               "tags": [],
               "prompt_markdown": "You are playing a one-player game with two opaque boxes. At each turn, you can choose to either \"place\" or \"take\". \"Place\" places $1 from a third party into one box randomly. \"Take\" empties out one box randomly and that money is yours. This game consists of 100 turns where you must either place or take. Assuming optimal play, what is the expected payoff of this game?",
-              "answer": "Optimal play is to \"place\" 94 times then \"take\" 6 times, for an expected payoff of 2961/32 = $92.53125.",
+              "answer": "Optimal play is to \"place\" 94 times then \"take\" 6 times, for an expected payoff of $2961/32 = \\$92.53125$.",
               "solutions": [
                 {
                   "label": "Solution",
@@ -1630,7 +1630,7 @@
               "difficulty": "easy",
               "tags": [],
               "prompt_markdown": "What is the smallest number of cuts required to create 64 unit cubes from a 4 by 4 by 4 unit block of wood?",
-              "answer": "6 cuts (2 per axis, since ceil(log2 4) = 2, using restacking between cuts). It is 9 only if pieces may not be rearranged.",
+              "answer": "6 cuts (2 per axis, since $\\lceil \\log_2 4 \\rceil = 2$, using restacking between cuts). It is 9 only if pieces may not be rearranged.",
               "solutions": [
                 {
                   "label": "Solution",
@@ -1662,7 +1662,7 @@
               "difficulty": "easy",
               "tags": [],
               "prompt_markdown": "You are the portfolio manager of a fund worth $75 million. Your fund has 5 possible asset classes that it can invest in:\n\n1. Equity Options\n2. Commodity Futures\n3. Fixed Income\n4. Event Contracts\n5. Cryptocurrencies\n\nHow many ways can you invest all $75 million into these five asset classes in increments of $1 million? As an example, one investment strategy may be:\n\n1. Equity Options - $7 million\n2. Commodity Futures - $35 million\n3. Fixed Income - $20 million\n4. Event Contracts - $12 million\n5. Cryptocurrencies - $1 million",
-              "answer": "C(79, 4) = 1,502,501 ways (allowing $0 in some classes). If each class must receive at least $1M, it is C(74, 4) = 1,150,626.",
+              "answer": "$C(79, 4) = 1{,}502{,}501$ ways (allowing \\$0 in some classes). If each class must receive at least \\$1M, it is $C(74, 4) = 1{,}150{,}626$.",
               "solutions": [
                 {
                   "label": "Solution",
@@ -2036,7 +2036,7 @@
               "difficulty": "medium",
               "tags": [],
               "prompt_markdown": "Alice and Bob start a game with a stack of n cards. Let n be chosen by rolling a fair 1000 sided die. On their turn, each player will split the current stack of cards into two piles and discard the smaller pile. If both piles are the same size, one pile is still discarded. If a player is unable to split the stack of cards on their turn, they lose. If Alice goes first and both players play optimally, what is the probability that she wins?",
-              "answer": "991/1000 = 0.991.",
+              "answer": "$991/1000 = 0.991$.",
               "solutions": [
                 {
                   "label": "Solution",
@@ -2078,7 +2078,7 @@
               "difficulty": "easy",
               "tags": [],
               "prompt_markdown": "Given a 4-minute and 7-minute hourglass, how would you measure exactly 9 minutes?",
-              "answer": "Start both glasses at t = 0. At t = 7 the 7-min glass empties (flip it); at t = 8 the 4-min glass empties; flipping the 7-min glass at t = 8 lets the 1 minute of sand that has accumulated run back, finishing at t = 9. Total elapsed = 9 minutes.",
+              "answer": "Start both glasses at $t = 0$. At $t = 7$ the 7-min glass empties (flip it); at $t = 8$ the 4-min glass empties; flipping the 7-min glass at $t = 8$ lets the 1 minute of sand that has accumulated run back, finishing at $t = 9$. Total elapsed = 9 minutes.",
               "solutions": [
                 {
                   "label": "Solution",
@@ -2635,7 +2635,7 @@
               "difficulty": "medium",
               "tags": [],
               "prompt_markdown": "Let $A$ be an $n \\times n$ matrix with eigenvalues 5 and 7. Find the sum of the eigenvalues of:\n\n$$B = ((A - 3\\cdot I_n)^{-1})^3$$",
-              "answer": "9/64 = 0.140625",
+              "answer": "$9/64 = 0.140625$",
               "solutions": [
                 {
                   "label": "Solution",
@@ -2651,7 +2651,7 @@
               "difficulty": "medium",
               "tags": [],
               "prompt_markdown": "A group of 5 people want to keep their secret document in a safe. They want to make sure that in the future, only a majority ($\\ge 3$) of people can open the safe. To accomplish this they want to put some locks on the safe, whereby each of the locks have to be opened to access the safe. Each lock can have multiple keys; but each key only opens one lock. How many locks are required at minimum? How many keys will each member carry?",
-              "answer": "Minimum locks = 10 (= C(5,2)); each member carries 6 keys (= C(4,2)). (Each lock has 3 keys.)",
+              "answer": "Minimum locks = 10 ($= C(5,2)$); each member carries 6 keys ($= C(4,2)$). (Each lock has 3 keys.)",
               "solutions": [
                 {
                   "label": "Solution",
@@ -2840,7 +2840,7 @@
               "difficulty": "easy",
               "tags": [],
               "prompt_markdown": "A manufacturer produces nuts and bolts. A random sample of twelve bolts returned a sample variance of .0003, while a random sample of twelve bolts from a competitor returned a sample variance of .0001. We wish to test if there is sufficient data to indicate a smaller variation in bolt diameter from the competitor. What is the value of the relevant test statistic? Assume independence, variance homogeneity, and that diameter variance is approximately normally distributed.",
-              "answer": "F = 0.0003 / 0.0001 = 3, with (11, 11) degrees of freedom.",
+              "answer": "$F = 0.0003 / 0.0001 = 3$, with (11, 11) degrees of freedom.",
               "solutions": [
                 {
                   "label": "Solution",
@@ -3123,7 +3123,7 @@
               "difficulty": "medium",
               "tags": [],
               "prompt_markdown": "Jamison has two call options on the underlying SSS with initial price S0 = 24 and strike K = 21. One option is European and the other is American. A European option is one where you can only exercise it at expiry, while an American option can be exercised at any time.\n\nThe European option is valued at 3.21 while the American option is valued at 3.15. You also have access to bonds with discount rate Z0 = 0.9. The underlying pays no dividends.\n\nWhat is the arbitrage? Give the answer in the form of the initial credit you receive.",
-              "answer": "Buy the American call and sell the European call; initial credit = 3.21 − 3.15 = **$0.06**.",
+              "answer": "Buy the American call and sell the European call; initial credit $= 3.21 - 3.15 =$ **\\$0.06**.",
               "solutions": [
                 {
                   "label": "Solution",
@@ -3264,7 +3264,7 @@
               "difficulty": "medium",
               "tags": [],
               "prompt_markdown": "Using OLS, we regress $y$ onto $X_1$ and find that the model has an $R^2$ of $0.15$. We also regress $y$ onto $X_2$ but this time the model has an $R^2$ of $0.2$. Let $[\\min, \\max]$ denote the lower and upper bound of the $R^2$ of a model which regresses $y$ onto $X_1, X_2$. Express your answer as $\\max/\\min$.",
-              "answer": "max/min = 1 / 0.2 = 5. (Min = 0.2 from nesting; max = 1 via correlated/suppressor regressors. The orthogonal special case gives 0.35, i.e. ratio 1.75.)",
+              "answer": "$\\max/\\min = 1/0.2 = 5$. (Min $= 0.2$ from nesting; max $= 1$ via correlated/suppressor regressors. The orthogonal special case gives $0.35$, i.e. ratio $1.75$.)",
               "solutions": [
                 {
                   "label": "Solution",
