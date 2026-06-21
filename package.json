@@ -6,6 +6,8 @@
   "description": "Offline-first quant interview study PWA",
   "scripts": {
     "dev": "vite",
+    "test:content": "node scripts/check-content.mjs",
+    "prebuild": "node scripts/check-content.mjs",
     "build": "vite build",
     "preview": "vite preview"
   },
